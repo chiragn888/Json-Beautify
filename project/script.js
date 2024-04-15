@@ -1,27 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>JSON Beautifier</title>
-  <script>
-    function beautifyJson() {
-      var inputJson = document.getElementById('jsonInput').value;
-      try {
-        var beautifiedJson = JSON.stringify(JSON.parse(inputJson), null, 2);
-        document.getElementById('jsonOutput').value = beautifiedJson;
-      } catch (error) {
-        document.getElementById('jsonOutput').value = inputJson;
-        console.error("Invalid JSON input: ", error);
-      }
-    }
 
-    window.onload = function() {
-      document.getElementById('beautifyBtn').addEventListener('click', beautifyJson);
-    };
-  </script>
-</head>
-<body>
-  <h1>JSON Beautifier</h1>
-  <textarea id="jsonInput" rows="10" cols="50">{ "name": "John", "age": 30, "city": "New York" }</textarea><br>
-  <button id="beautifyBtn">Beautify JSON</button><br><br>
-  <textarea id="jsonOutput" rows="10" cols="50"></textarea>
-</body>
+document.addEventListener("DOMContentLoaded", function() {
+    // Attach the event listener to the beautify button
+    document.getElementById("beautifyBtn").addEventListener("click", beautifyJson);
+});
+
+/**
+ * Beautifies the JSON input from the user and displays it in the output area.
+ */
+function beautifyJson() {
+    // Retrieve the JSON input from the textarea
+    const userInput = document.getElementById("jsonInput").value;
+
+    try {
+        // Parse the input to ensure it is valid JSON
+        const parsedJson = JSON.parse(userInput.replace(/None/g, "null").replace(/False/g, "false").replace(/'/g, "\""));
+        // Beautify the JSON string with indentation
+        const beautifiedJson = JSON.stringify(parsedJson, null, 4);
+        // Display the beautified JSON in the output area
+        document.getElementById("jsonOutput").textContent = beautifiedJson;
+    } catch (error) {
+        // If an error occurs (e.g., invalid JSON), display an error message
+        document.getElementById("jsonOutput").textContent = "Invalid JSON input. Please check your JSON syntax.";
+    }
+}
