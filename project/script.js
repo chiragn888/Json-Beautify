@@ -1,5 +1,3 @@
-// script.js
-
 /**
  * Beautifies the provided JSON input.
  * @param {string} jsonInput - The JSON string to beautify.
@@ -30,10 +28,10 @@ function updateDisplay(beautifiedJSON) {
 }
 
 /**
- * Handles the click event on the 'Beautify JSON' button.
+ * Beautifies the JSON input retrieved from the textarea element.
  */
-function onBeautifyClick() {
-    // Select the input element where the user enters JSON
+function beautifyJson() {
+    // Select the textarea element where the user enters JSON
     const inputElement = document.getElementById("jsonInput");
     // Get the value of the input element
     const jsonInput = inputElement.value;
@@ -46,6 +44,6 @@ function onBeautifyClick() {
 // Add event listener to the 'Beautify JSON' button
 document.addEventListener("DOMContentLoaded", function() {
     // Select the 'Beautify JSON' button
-    const beautifyButton = document.getElementById("beautifyButton");
+    const beautifyButton = document.getElementById("beautifyBtn"); // Updated ID to match the plan
     // Add click event listener to the button
-    beautifyButton.addEventListener("click", onBeautifyClick);
+    beautifyButton.addEventListener("click", beautifyJson); // Updated to call the new function
