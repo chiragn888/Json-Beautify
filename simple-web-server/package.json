@@ -1,0 +1,28 @@
+{
+  "name": "simple-web-server",
+  "version": "1.0.0",
+  "description": "A simple web server that serves an HTML page with an h1 tag containing 'xml/json'.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/simple-web-server.git"
+  },
+  "keywords": [
+    "web",
+    "server",
+    "express",
+    "nodejs"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yourusername/simple-web-server/issues"
+  },
+  "homepage": "https://github.com/yourusername/simple-web-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
