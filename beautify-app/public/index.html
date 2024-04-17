@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML/JSON Beautifier</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>XML/JSON Beautifier</h1>
+        <form id="beautifyForm" action="/beautify" method="POST">
+            <label for="formatSelect">Select Format:</label>
+            <select id="formatSelect" name="format">
+                <option value="JSON">JSON</option>
+                <option value="XML">XML</option>
+            </select>
+            <label for="textInput">Input Text:</label>
+            <textarea id="textInput" name="text" rows="10" cols="50" required></textarea>
+            <button type="submit">Beautify</button>
+        </form>
+        <div id="resultContainer">
+            <h2>Result</h2>
+            <pre id="result"></pre>
+        </div>
+    </div>
+    <script>
+        document.getElementById('beautifyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const format = document.getElementById('formatSelect').value;
+            const text = document.getElementById('textInput').value;
+            const resultContainer = document.getElementById('result');
+
+            if (format === 'XML') {
+                fetch('/beautify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/xml; charset=utf-8'
+                    },
+                    body: text
+                })
+                .then(response => response.text())
+                .then(data => {
+                    resultContainer.textContent = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultContainer.textContent = 'Error beautifying XML';
+                });
+            } else {
+                // For JSON, simply format using JSON.stringify as this demo does not handle JSON formatting on the server-side.
+                try {
+                    const jsonObj = JSON.parse(text);
+                    resultContainer.textContent = JSON.stringify(jsonObj, null, 2);
+                } catch (error) {
+                    console.error('Error:', error);
+                    resultContainer.textContent = 'Invalid JSON input';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

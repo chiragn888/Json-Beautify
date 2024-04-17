@@ -1,0 +1,22 @@
+{
+  "name": "beautify-app",
+  "version": "1.0.0",
+  "description": "A web application to beautify XML content.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "xml",
+    "beautify",
+    "body-parser"
+  ],
+  "author": "Your Name <youremail@example.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "xml-beautify": "^1.0.0"
+  }
+}

@@ -1,0 +1,90 @@
+/* styles.css - Styling for the XML/JSON Beautifier application */
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Container for the entire app */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the form */
+#beautifyForm {
+    margin-bottom: 20px;
+}
+
+/* Styling for form elements */
+#beautifyForm label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+#beautifyForm select,
+#beautifyForm textarea,
+#beautifyForm button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Makes sure padding does not affect the total width */
+}
+
+#beautifyForm button {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#beautifyForm button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the result container */
+#resultContainer {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#resultContainer h2 {
+    margin-top: 0;
+}
+
+/* Pre tag styling for result display */
+#result {
+    white-space: pre-wrap; /* Ensures formatting is preserved */
+    word-wrap: break-word; /* Ensures long text breaks and does not overflow */
+    background-color: #eaeaea;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    #beautifyForm select,
+    #beautifyForm textarea,
+    #beautifyForm button {
+        width: 100%;
+    }
+}
