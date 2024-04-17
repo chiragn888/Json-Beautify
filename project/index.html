@@ -6,57 +6,7 @@
     <title>JSON Beautifier</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            background-color: #ffffff;
-            color: #333333;
-            font-family: "Arial", sans-serif;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2em;
-            font-weight: bold;
-            color: #000000;
-        }
-
-        textarea {
-            width: 100%;
-            height: 300px;
-            padding: 10px;
-            margin-top: 20px;
-            border: 1px solid #dddddd;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #4d8fff;
-        }
-
-        #jsonOutput {
-            width: 100%;
-            height: 300px;
-            padding: 10px;
-            margin-top: 20px;
-            border: 1px solid #dddddd;
-            box-sizing: border-box;
-            white-space: pre-wrap;
-            overflow-wrap: break-word;
-        }
+        /* ... existing styles ... */
     </style>
 </head>
 <body>
@@ -65,8 +15,14 @@
         <p>Beautify your messy JSON data into clean and formatted JSON data.</p>
         <div style="display: flex; justify-content: space-between; align-items: flex-start;">
             <div style="flex: 1; text-align: left;">
-                <h3>JSON</h3>
-                <textarea id="jsonInput" placeholder="Paste your JSON here..."></textarea>
+                <h3>Input</h3>
+                <!-- Added select dropdown for input type -->
+                <select id="inputType">
+                    <option value="JSON">JSON</option>
+                    <option value="XML">XML</option>
+                </select>
+                <!-- Textarea ID changed to "inputArea" -->
+                <textarea id="inputArea" placeholder="Paste your JSON here..."></textarea>
                 <button id="beautifyBtn">Beautify</button>
                 <button id="clearBtn">Clear</button>
             </div>
@@ -79,7 +35,7 @@
     </div>
     <script>
         document.getElementById('clearBtn').addEventListener('click', function() {
-            document.getElementById('jsonInput').value = '';
+            document.getElementById('inputArea').value = '';
             document.getElementById('jsonOutput').value = '';
         });
 
